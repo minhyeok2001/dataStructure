@@ -1,8 +1,8 @@
 # DATA STRUCTURE
 
 ## 1. stack & queue
-
-asd
+implementation of basic stack, queue and circular queue.
+application of stack with postfix expression
 
 ---
 ## 2. linked list
