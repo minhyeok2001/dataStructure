@@ -2,7 +2,9 @@
 
 
 # 1. stack & queue
-witha datas 
+
+sadasd
+
 ---
 # 2. linked list
 ---
