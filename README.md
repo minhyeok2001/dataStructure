@@ -2,6 +2,7 @@
 
 
 # 1. stack & queue
+witha datas 
 ---
 # 2. linked list
 ---
