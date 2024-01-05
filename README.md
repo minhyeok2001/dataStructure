@@ -3,17 +3,27 @@
 
 # 1. stack & queue
 
-sadasd
+asd
 
 ---
 # 2. linked list
+
+
 ---
 # 3. trees
+
+
 ---
 # 4. graphs
 
-sadsaddas
+
 ---
 # 5. sorting
+
+
+---
 # 6. hashing
+
+
+---
 # 7. balanced binary search trees advanced ver
