@@ -8,7 +8,9 @@
 ---
 ## 2. linked list
 1. Linked lists, chains, circular list
-2. Fundamental function ; insert, delete and advanced ver with avail pointer. 
+   
+2. Fundamental function ; insert, delete and advanced ver with avail pointer.
+   
 3. doubly linked list
 
 ---
