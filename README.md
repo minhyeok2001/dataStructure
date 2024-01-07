@@ -3,7 +3,7 @@
 ## 1. stack & queue
 1. Implementation of basic stack, queue and circular queue.
 
-2. Application of stack with postfix expression.
+2. Application of stack with postfix expression. (to be implemented)
 
 ---
 ## 2. linked list
