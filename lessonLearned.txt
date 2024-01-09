@@ -1,0 +1,7 @@
+1. temp->data = strdup(msg) 
+    If we just only use 'msg' without strdup, then it does not copy the string, but it copies string's address, which means that it would be the problem soon.
+    (ex. if you change msg, then all temp->data follows the latest one)
+
+2. char* msg; with scanf later  VS char* msg = "hola";
+    Former one, we should control memory allocation, but the latter one, character string is automatically stored in 'const data area', which is read-only(cannot modify).
+    So, in the case of latter one, we don't have to care about memory allocation.

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* goal
+/* implementation
 Linked lists, chains, circular list
 Fundamental function ; insert, delete and advanced ver with avail pointer.
 doubly linked list
@@ -17,10 +17,12 @@ listPointer start;
 listPointer end; // similar to filepointer or stack pointer etc... showing current pointer.
 listPointer ptr;
 
-void insert(char* msg, listPointer prev) {
+int count=0;
+
+void insert(char* msg, listPointer prev, int value) {
     // make memory space
     listPointer temp = (listPointer)malloc(sizeof(node));
-    temp->data = msg;
+    temp->data = strdup(msg);
 
     if (!prev) {
         start = temp;
@@ -32,43 +34,45 @@ void insert(char* msg, listPointer prev) {
     temp->link = prev->link;
     prev->link = temp;
 
-    end = temp;
+    if (!value) end = temp;
 }
 
 void delete(listPointer prev) {
-
-    if (!(prev->link)) return;
-    if (!(prev->link->link)) {
-        free(prev->link);
-        prev->link = NULL;
+    if (!prev || !prev->link) {
         return;
     }
-    free(prev->link);
-    prev->link = prev->link->link;
+    listPointer temp = prev->link;
+    prev->link = temp->link;
+    free(temp->data); // Free the dynamically allocated string
+    free(temp);       // Free the node itself
 }
 
-void findWord(char* msg) {
+
+void findWord(char* msg, int judge) {   // 'judge' is used to consider count or not 
+    count = 0;
     for (listPointer temp = start; temp; temp = temp->link) {
+        count++;
         if (strcmp(msg, temp->data) == 0) {
             ptr = temp;
             return;
         }
         if (!(temp->link)) return;
+        
+        if(judge) 
+            if(judge == count) return;
     }
-    printf("%s not founded\n", msg);
 }
 
 void print() {
-    int count = 0;
     for (listPointer temp = start; temp; temp = temp->link) {  // condition ; temp -> link (x)  
-        printf("\ncount : %d\n----------\n", ++count);
-        printf("|%8s|", temp->data);
+        printf("\n|%8s|", temp->data);
         if (ptr == temp) printf("    <--- current ptr");
         printf("\n----------\n");
         if (!(temp->link)) break;
-        printf("    |\n    |\n");
+        printf("    |\n    |");
     }
 }
+
 int main() {
 
     char positionWord[10];
@@ -85,24 +89,44 @@ int main() {
             scanf("%s", inputWord);
             printf("\n");
 
-            if (strcmp(positionWord, "end") == 0) insert(inputWord, end);
+            if (strcmp(positionWord, "end") == 0) {
+                insert(inputWord, end, 0);
+            }
+
             else {
-                findWord(positionWord);
+                findWord(positionWord,0);
                 if (ptr) {
-                    insert(inputWord, ptr);
+                    insert(inputWord, ptr, 1);
                     ptr = NULL;
                 }
+                
+                else printf("\nerror : no such word\n");
             }
         }
 
         else if (input == 'd') {
+            printf("which word to delete? : ");
+            scanf("%s", inputWord);
+            printf("\n");
+            
+            ptr = NULL;
+            findWord(inputWord,0);
+
+            if (ptr) {
+                int a = count-1;
+                findWord(inputWord,a);
+                delete(ptr);
+                ptr = NULL;
+            }
+                
+            else printf("error : no such word\n");
 
         }
 
         else if (input == 'f') {
             printf("word : ");
-            scanf("%s", &positionWord);
-            findWord(positionWord);
+            scanf("%s", positionWord);
+            findWord(positionWord,0);
             printf("\n");
         }
 
