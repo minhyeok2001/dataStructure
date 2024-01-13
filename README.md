@@ -15,10 +15,13 @@
 
 ---
 ## 3. trees
+
+### 1. binary tree
 1. Binary tree (using linked list) ; insertion, deletion
 
 2. Binary tree traversal ; inorder, preorder, postorder
 
+### 2. advanced binary tree
 3. Threaded binary tree ; insertion, deletion
 
 4. Heaps ; max heap with insertion, deletion
