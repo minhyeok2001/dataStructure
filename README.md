@@ -9,13 +9,21 @@
 ## 2. linked list
 1. Linked lists, chains, circular list
    
-2. Fundamental function ; insert, delete and advanced ver with avail pointer.
+2. Fundamental function ; insertion, deletion and advanced ver with avail pointer.
    
-3. doubly linked list
+3. Doubly linked list ; insertion and deletion
 
 ---
 ## 3. trees
+1. Binary tree (using linked list) ; insertion, deletion
 
+2. Binary tree traversal ; inorder, preorder, postorder
+
+3. Threaded binary tree ; insertion, deletion
+
+4. Heaps ; max heap with insertion, deletion
+
+5. Binary search tree
 
 ---
 ## 4. graphs
