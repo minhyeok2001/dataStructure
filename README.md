@@ -16,12 +16,12 @@
 ---
 ## 3. Trees
 
-### 1. Binary tree
+#### 1. Binary tree
 1. Binary tree ; max heap, binary search tree with insertion & deletion
 
 2. Binary tree traversal ; inorder, preorder, postorder
 
-### 2. Threaded binary tree
+#### 2. Threaded binary tree
 3. Threaded binary tree
 
 ---
