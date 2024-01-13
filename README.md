@@ -17,16 +17,12 @@
 ## 3. Trees
 
 ### 1. Binary tree
-1. Binary tree (using linked list) ; insertion, deletion
+1. Binary tree ; max heap, binary search tree
 
 2. Binary tree traversal ; inorder, preorder, postorder
 
-### 2. Advanced binary tree
-3. Threaded binary tree ; insertion, deletion
-
-4. Heaps ; max heap with insertion, deletion
-
-5. Binary search tree
+### 2. Threaded binary tree
+3. Threaded binary tree
 
 ---
 ## 4. Graphs
