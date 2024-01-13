@@ -5,3 +5,10 @@
 2. char* msg; with scanf later  VS char* msg = "hola";
     Former one, we should control memory allocation, but the latter one, character string is automatically stored in 'const data area', which is read-only(cannot modify).
     So, in the case of latter one, we don't have to care about memory allocation.
+
+3. if(!a) vs if(a) do not confused...
+
+4. temp = node vs node = temp >> lets just think as "left becomes right".
+    >> if wanna you want to link temp node with avail trail??    temp = avail (X) // avail = temp (O)
+
+
