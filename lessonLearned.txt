@@ -11,4 +11,4 @@
 4. temp = node vs node = temp >> lets just think as "left becomes right".
     >> if wanna you want to link temp node with avail trail??    temp = avail (X) // avail = temp (O)
 
-
+5. making a new node with link, we must initialize both data and link(with NULL) of its node. 
