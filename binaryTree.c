@@ -8,6 +8,7 @@
 
 #define FROMLEFT 1
 #define FROMRIGHT 0
+
 /*  implementation 
 
 Binary tree ; max heap, binary search tree with insertion & deletion
@@ -140,35 +141,40 @@ void binarySearchTreeDeletion(int data) {
             break;
         }
     }
+
+//switching existing node isnt easy. 
+//lets just switch data, and free()
+
     treePointer originalTemp = temp;
-   
-    // 삭제부분 문제 확실히 있음.
-
-
-    if (!temp->leftChild && !temp->rightChild) free(originalTemp);   // with leaf node
+    treePointer tempPrev = NULL ;
+    if (!temp->leftChild && !temp->rightChild) {}   // with leaf node
+    
     else if (!temp->leftChild) {    // with 1 right child
-        for (; temp && temp->rightChild; temp = temp->rightChild) {}
-        if (flag == FROMLEFT) prev->leftChild = temp;
-        else prev->rightChild = temp;
-        temp->rightChild = originalTemp->rightChild;
-        free(originalTemp);
+        for (; temp && temp->rightChild; temp = temp->rightChild) {
+            tempPrev = temp;
+        }
+        originalTemp->data = temp->data;
+        tempPrev->rightChild = NULL;
     }
     else if (!temp->rightChild) {   // with 1 left child
-        for (; temp && temp->leftChild; temp = temp->leftChild) {}
-        if (flag == FROMLEFT) prev->leftChild = temp;
-        else prev->rightChild = temp;
-        temp->leftChild = originalTemp->leftChild;
-        free(originalTemp);
+        for (; temp && temp->leftChild; temp = temp->leftChild) {
+            tempPrev = temp;
+        }
+        originalTemp->data = temp->data;
+        tempPrev->leftChild = NULL;
     }
     else {  // with 2 child
         temp = temp->leftChild;
-        for (; temp && temp->rightChild; temp = temp->rightChild) {} // find largest num in leftchild
-        if (flag == FROMLEFT) prev->leftChild = temp;
-        else prev->rightChild = temp;
-        temp->leftChild = originalTemp->leftChild;
-        temp->rightChild = originalTemp->rightChild;
-        free(originalTemp);
+        for (; temp && temp->rightChild; temp = temp->rightChild) {
+            tempPrev = temp;
+        } // find largest num in leftchild
+        originalTemp->data = temp->data;
+        tempPrev->rightChild = NULL;
+        
     }
+
+ 
+    free(temp);
 }
 
 void print(int var) {
