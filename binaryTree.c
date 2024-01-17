@@ -79,7 +79,7 @@ void maxHeapInsertion(int data) {
 
 void maxHeapDeletion() {   // delete top node (largest node) due to the feature of max heap..
     int i;
-    for(i=1;i<MAXSIZE;i++) {
+    for(i=1;i<MAXSIZE;i++) {    
         if(maxHeap[i]==0) break;
     }
     int totalNum = i-1;
