@@ -22,7 +22,7 @@
 2. Binary tree traversal ; inorder, preorder, postorder
 
 #### 2. Threaded binary tree
-3. Threaded binary tree
+1. Threaded binary tree : insertion & deletion
 
 ---
 ## 4. Graphs
