@@ -15,7 +15,6 @@
 
 ---
 ## 3. Trees
-
 1. Binary tree ; max heap, binary search tree with insertion & deletion
 
 2. Binary tree traversal ; inorder, preorder, postorder
