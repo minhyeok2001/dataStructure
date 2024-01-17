@@ -26,7 +26,38 @@ typedef struct tree{
 
 treePointer root;
 
+typedef struct threadedBinaryTree * threadedBinaryTreePointer;
+typedef struct threadedBinaryTree {
+    int data;
+    int rightDistinction, leftDistinction;  // show where the pointer is heading to whether it is a child or thread with 0 and 1.
+    threadedBinaryTreePointer leftChild,rightChild;
+} threadedBinaryTree;
+// threaded binary tree insertion and deletion are same as dealing with ordinary tree insertion and deletion, but applying inorder traversal is needed.
+// + arranging dangling points.
+
 int maxHeap[MAXSIZE] = {0, };
+
+void preorder(treePointer ptr) {
+    if(!ptr) return;
+    printf("%d",ptr->data);
+    preorder(ptr->leftChild);
+    preorder(ptr->rightChild);
+}
+
+void inorder(treePointer ptr) { // can be used in BST if we want to arrange in ascending order.,
+    if(!ptr) return;
+    inorder(ptr->leftChild);
+    printf("%d",ptr->data);
+    inorder(ptr->rightChild);
+}
+
+void postorder(treePointer ptr) {
+    if(!ptr) return;
+    postorder(ptr->leftChild);
+    postorder(ptr->rightChild);
+    printf("%d",ptr->data);
+}
+
 
 void maxHeapInsertion(int data) {
     int i;
@@ -43,7 +74,7 @@ void maxHeapInsertion(int data) {
             maxHeap[i/2] = temp;
         }
         i/=2;
-    } 
+    }
 }
 
 void maxHeapDeletion() {   // delete top node (largest node) due to the feature of max heap..
