@@ -20,10 +20,8 @@
 1. Binary tree ; max heap, binary search tree with insertion & deletion
 
 2. Binary tree traversal ; inorder, preorder, postorder
-
-#### 2. Threaded binary tree
-1. Threaded binary tree : insertion & deletion
-
+ 
+3. Threaded binary tree 
 ---
 ## 4. Graphs
 
