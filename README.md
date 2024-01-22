@@ -24,7 +24,7 @@
 ## 4. Graphs
 1. Graph traversal ; depth first search, breath first search with adjacency list
 
-2. Minimum cost spanning tree ; kruskal, prim, sollin
+2. Minimum cost spanning tree ; kruskal (with UNION-FIND), prim, sollin
 
 3. Shortest path searching ; dijkstra, bellman-ford (to be implemented)
 
