@@ -34,7 +34,17 @@ using...
 
 ---
 ## 5. Sorting
+1. Insertion sort
+   
+2. Bubble sort
 
+3. Selection sort
+
+4. Quick sort
+ 
+5. Merge sort
+ 
+6. Heap sort
 
 ---
 ## 6. Hashing
