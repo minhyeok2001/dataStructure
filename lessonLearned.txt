@@ -14,3 +14,7 @@
 5. making a new node with link, we must initialize both data and link(with NULL) of its node. 
 
 6. each of structure pointer array needed memory allocation with size of struct.
+
+7. UNION-FIND; make them union & find with their parent.
+    >> when adding two variable in union-find arr, it is important to find whose ancestor is smaller.
+       it should be like  ; arr[bigger ancestor variable] = smaller ancestor variable; 
