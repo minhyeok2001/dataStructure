@@ -18,3 +18,5 @@
 7. UNION-FIND; make them union & find with their parent.
     >> when adding two variable in union-find arr, it is important to find whose ancestor is smaller.
        it should be like  ; arr[bigger ancestor variable] = smaller ancestor variable; 
+
+8. bubble sort ; if(arr[i] > arr[i+1]) >> watch out for i+1 range.! 
