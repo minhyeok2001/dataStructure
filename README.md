@@ -1,4 +1,4 @@
-# DATA STRUCTURE with C(24/1/5 ~ 
+# DATA STRUCTURE in C (24/1/5 ~ 
 
 ## 1. Stack & queue
 1. Implementation of basic stack, queue and circular queue.
