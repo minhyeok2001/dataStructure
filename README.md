@@ -19,7 +19,7 @@
 
 2. Binary tree traversal ; inorder, preorder, postorder
  
-3. Threaded binary tree 
+3. Threaded binary tree (to be implemented)
 ---
 ## 4. Graphs
 1. Graph traversal ; depth first search, breath first search with adjacency list
