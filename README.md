@@ -43,17 +43,21 @@ using...
 
 ---
 ## 6. Hashing
-# 1. Static hashing
+### 1. Static hashing
 1. Hashing algorithms
    >
 
 2. Overflow handling
    > Open addressing ; linear, random, quadratic probing
+   
    > Chaining
 
-# 2. Dynamic hashing 
+### 2. Dynamic hashing 
 1. Extendable hashing
    
 2. Linear hashing
 ---
 ## 7. Balanced binary search trees (advanced ver)
+1. AVL tree
+
+2. Red-Black tree
