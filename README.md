@@ -45,7 +45,7 @@ using...
 ## 6. Hashing
 ### 1. Static hashing
 1. Hashing algorithms
-   >
+   > Mid square, division, folding, digit analysis
 
 2. Overflow handling
    > Open addressing ; linear, random, quadratic probing
