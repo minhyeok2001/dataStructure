@@ -13,8 +13,6 @@ int heapArr[11] ={0,};  // blank in first index
 int count=1;
 int descendCount=10;
 
-int mergeArr[10]={0,};
-
 void insertionSort(int* arr) {  // using LOO(left out of order). insert in the right position.
     int temp = 0;
     int k = 0;
@@ -107,13 +105,20 @@ void merge(int*arr, int l, int m, int r) {
     int mid = m;
     int midp = m+1;
     int right = r;
-    while(left<=mid && midp<=right) {   // first step. compare the min value of both divided group, and put it in new arr.
-        if(arr[left]<arr[midp]) mergeArr[l++]=arr[left++];
-        else mergeArr[l++]=arr[midp++];
+    int mergeArr[10]={0,};
+
+    int index = 0;
+    while(left<=mid && midp<=right) {   // first step. compare the min value of both divided group, and put it in to a new arr.
+        if(arr[left]<arr[midp]) mergeArr[index++]=arr[left++];
+        else mergeArr[index++]=arr[midp++];
     }
 
-    for(;left>mid;midp++) mergeArr[l++]=arr[midp];  // for those who haven't find their space.
-    for(;midp>right;left++) mergeArr[l++]=arr[midp];
+    while(midp<=right) mergeArr[index++]=arr[midp++]; // for those who haven't find their space.
+    while(left<=mid) mergeArr[index++]=arr[left++];
+ 
+     for (int i = 0; i < index; i++) {
+        arr[l + i] = mergeArr[i];
+    }
 }
 
 void mergeSort(int* arr, int left, int right) {  // similar concept with quicksort. DIVIDE & CONQUER
@@ -195,7 +200,7 @@ void main() {
     mergeSort(arr5,0,9);
 
     printf("Merge sort : ");
-    for (int k = 0; k < 10; k++) printf("%d ", mergeArr[k]);
+    for (int k = 0; k < 10; k++) printf("%d ", arr5[k]);
     printf("\n");
 
     int arr6[10] = { 30, 24, 61, 23, 10, 42, 75, 15, 5, 40 };

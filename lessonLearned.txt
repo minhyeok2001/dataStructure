@@ -25,3 +25,7 @@
                 judge whether it is proper space to put while initializing(making heap tree). Rather, just adjusting the scope of re-initializing can make problem solved.
 
                 also we should watch out for the range of array when doubling the parent index to swap.
+
+10. merge sort ; 1. without global variables.
+                 2. use new index to store newly made array, not left 
+                >> 이해가 하도 안가서 일단 스킵했음.. 나중에 반드시 다시보기
