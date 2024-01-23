@@ -34,7 +34,9 @@ using...
 
 ---
 ## 5. Sorting
-1. 5 types of sorting ; Insertion sort, Bubble sort, Selection sort, Quick sort, Merge sort, Heap sort
+1. 5 types of sorting
+   
+   >>Insertion sort, Bubble sort, Selection sort, Quick sort, Merge sort, Heap sort
 
 ![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/288a1ef2-8f87-42c2-bf99-0d99ec799798)
 ---
