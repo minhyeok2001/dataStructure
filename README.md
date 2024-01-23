@@ -34,7 +34,7 @@ using...
 
 ---
 ## 5. Sorting
-   5 types of sorting
+   6 types of sorting
    
    >Insertion sort, Bubble sort, Selection sort, Quick sort, Merge sort, Heap sort
 
