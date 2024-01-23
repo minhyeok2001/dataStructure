@@ -13,6 +13,8 @@ int heapArr[11] ={0,};  // blank in first index
 int count=1;
 int descendCount=10;
 
+int mergeArr[10]={0,};
+
 void insertionSort(int* arr) {  // using LOO(left out of order). insert in the right position.
     int temp = 0;
     int k = 0;
@@ -100,9 +102,27 @@ void quickSort(int* arr, int left, int right) {  //divide and conquer using pivo
     else return;
 }
 
-void mergeSort(int* arr) {
+void merge(int*arr, int l, int m, int r) {
+    int left = l;
+    int mid = m;
+    int midp = m+1;
+    int right = r;
+    while(left<=mid && midp<=right) {   // first step. compare the min value of both divided group, and put it in new arr.
+        if(arr[left]<arr[midp]) mergeArr[l++]=arr[left++];
+        else mergeArr[l++]=arr[midp++];
+    }
 
+    for(;left>mid;midp++) mergeArr[l++]=arr[midp];  // for those who haven't find their space.
+    for(;midp>right;left++) mergeArr[l++]=arr[midp];
 }
+
+void mergeSort(int* arr, int left, int right) {  // similar concept with quicksort. DIVIDE & CONQUER
+    if(left >= right) return;
+    int mid = (left+right)/2;
+    mergeSort(arr, left, mid);
+    mergeSort(arr, mid+1, right);
+    merge(arr,left,mid,right);
+}   
 
 void heapInsertion(int var) {
     heapArr[count] = var;
@@ -120,20 +140,24 @@ int heapDeletion() {    // 1. remove first node. 2. replace first position with 
     int parent = 1;
     int result = heapArr[1];
     heapArr[1] = heapArr[descendCount];
-    heapArr[descendCount--] = 0;
+    heapArr[descendCount--] =0xffff;
+    int temp;
     
     for(;;) {
-        if(heapArr[parent]>heapArr[parent*2] || heapArr[parent]>heapArr[parent*2+1]) {
-            if(heapArr[parent*2]<heapArr[parent*2+1]) {
-                int temp= heapArr[parent];
-                heapArr[parent] = heapArr[parent*2];
-                heapArr[parent*2]=temp;
+        if(heapArr[parent]>heapArr[parent*2] || heapArr[parent]>heapArr[parent*2+1]) {  // if any of child is smaller than parent, then swap with smaller child.
+            if (heapArr[parent * 2] < heapArr[parent * 2 + 1] && parent * 2 <= descendCount) {  //
+                temp = heapArr[parent];
+                heapArr[parent] = heapArr[parent * 2];
+                heapArr[parent * 2] = temp;
+                parent = parent * 2;
             }
-            else {
-                int temp= heapArr[parent];
-                heapArr[parent] = heapArr[parent*2+1];
-                heapArr[parent*2+1]=temp;
+            else if (heapArr[parent * 2] > heapArr[parent * 2 + 1] && parent * 2 + 1 <= descendCount) {
+                temp = heapArr[parent];
+                heapArr[parent] = heapArr[parent * 2 + 1];
+                heapArr[parent * 2 + 1] = temp;
+                parent = parent * 2 + 1;
             }
+            else break;
         }
         else break;
     }
@@ -146,7 +170,7 @@ void heapSort(int* arr) {   // using min heap insertion.
     for(int i=0;i<10;i++) heapInsertion(arr[i]);
     
     printf("Heap sort : ");
-    for (int i = 0; i < 10; i++) printf("%d ", arr[i]);
+    for (int i = 1; i < 11; i++) printf("%d ", heapDeletion());
     printf("\n");
 }
 
@@ -168,7 +192,11 @@ void main() {
     printf("\n");
 
     int arr5[10] = { 30, 24, 61, 23, 10, 42, 75, 15, 5, 40 };
-    //mergeSort(arr5);
+    mergeSort(arr5,0,9);
+
+    printf("Merge sort : ");
+    for (int k = 0; k < 10; k++) printf("%d ", mergeArr[k]);
+    printf("\n");
 
     int arr6[10] = { 30, 24, 61, 23, 10, 42, 75, 15, 5, 40 };
     heapSort(arr6);

@@ -20,3 +20,8 @@
        it should be like  ; arr[bigger ancestor variable] = smaller ancestor variable; 
 
 8. bubble sort ; if(arr[i] > arr[i+1]) >> watch out for i+1 range.! 
+
+9. heap sort ; if we want to delete, it is not a good idea to put some numbers like 0 or 0xffff in the blank, because we compare them to
+                judge whether it is proper space to put while initializing(making heap tree). Rather, just adjusting the scope of re-initializing can make problem solved.
+
+                also we should watch out for the range of array when doubling the parent index to swap.
