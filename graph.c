@@ -191,7 +191,6 @@ int unionSets(int a, int b) {
     else return FALSE;
 }
 
-// 주의 !! 작은걸로 하는게 아니라 먼저 들어온 순서대로 해야함 !!
 void makeUnionSets(int a, int b) {
     if (find(a) > find(b)) unionFindArr[a] = b;
     else unionFindArr[b] = a;
@@ -295,27 +294,59 @@ void prim(int start) {
 
     freeArray();
 }
+// union find again by my own!!
+
+int myFind(int vertex) {
+    if(unionFindArr[vertex]==vertex) return vertex;
+    else return myFind(unionFindArr[vertex]);
+}
+
+int myUnionFind(int vertex1, int vertex2) {
+    if(myFind(vertex1)==myFind(vertex2)) return TRUE;
+    else return FALSE;
+}
+
+void myMakeUnion(int vertex1,int vertex2) {
+    if(myFind(vertex1)>myFind(vertex2)) unionFindArr[vertex1]=vertex2;
+    else unionFindArr[vertex2]=vertex1;
+}
 
 void sollin() { // 1. find least weight edge for each node.     2. check duplication and link them.     
                 // 3.  link between forests, if the number of edges is vertex-1, done.
     count=0;
     setArray();
     int edgeCount=0;
-    int min=0xffff;
-    int memory;
-    //1. find least weight edge for each node.  // 양쪽에서 해야한다는거 명심해야함.......
+    int min;
+    int vertex1,vertex2;
+
+    for (int i = 0; i < NODENUM; i++) unionFindArr[i] = i;  // also use union-find
+
+    //1. find least weight edge for each node.  
     for(int i=0;i<NODENUM;i++) {
-        for(int k=0;;k++) {
-            if(arr[k][0]==i) if(min>arr[k][2]) {
-                min=arr[k][2]; 
-                memory = arr[k]
+        min=0xffff;
+        for(int k=0;k<WEIGHTNUM;k++) {
+            if(arr[k][0]==i || arr[k][1]==i) {
+                if(min>arr[k][2]) {
+                    if(arr[k][0]>arr[k][1]) {
+                        vertex1 = arr[k][1];
+                        vertex2 = arr[k][0];
+                    }
+                    else {
+                        vertex1 = arr[k][0];
+                        vertex2 = arr[k][1];
+                    }   // smaller one ; vertex1.
+                    min = arr[k][2];
+                }
             }
         }
+
+        if(!myUnionFind(vertex1,vertex2)) {
+            myMakeUnion(vertex1,vertex2);
+            printf("(%d %d) ",vertex1,vertex2);
+        }
+        // 1st step done. ( without checking duplication)
     }
-
 }
-
-
 
 int main() {
 
@@ -331,6 +362,6 @@ int main() {
 
     kruskal();
     prim(0);
-
+    sollin();
     return 0;
 }
