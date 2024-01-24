@@ -245,7 +245,7 @@ void prim(int start) {
     
         flag = 0;    // 1. which node to start?   2. linked?   3. visited?    4. initialized?     5. minimum?
         min = 0xffff;
-        for (int k = 0; k < 9; k++) {
+        for (int k = 0; k < NODENUM; k++) {
             if (visited[k]) {
                 node = k;
                 for (int i = 0; i < WEIGHTNUM; i++) { // find node linked with node, and compare weight using min value
@@ -291,9 +291,30 @@ void prim(int start) {
         printf("%d ", node);
         weight +=min;
     }
-    // 3333이 나온다 > 1. flag 씀. 2. min값이 갱신이 안됨.
     printf("] weight : %d\n", weight);
+
+    freeArray();
 }
+
+void sollin() { // 1. find least weight edge for each node.     2. check duplication and link them.     
+                // 3.  link between forests, if the number of edges is vertex-1, done.
+    count=0;
+    setArray();
+    int edgeCount=0;
+    int min=0xffff;
+    int memory;
+    //1. find least weight edge for each node.  // 양쪽에서 해야한다는거 명심해야함.......
+    for(int i=0;i<NODENUM;i++) {
+        for(int k=0;;k++) {
+            if(arr[k][0]==i) if(min>arr[k][2]) {
+                min=arr[k][2]; 
+                memory = arr[k]
+            }
+        }
+    }
+
+}
+
 
 
 int main() {

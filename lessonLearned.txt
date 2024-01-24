@@ -29,3 +29,8 @@
 10. merge sort ; 1. without global variables.
                  2. use new index to store newly made array, not left 
                 >> 이해가 하도 안가서 일단 스킵했음.. 나중에 반드시 다시보기
+
+11. prim ; 1. which node to start?   2. linked?   3. visited?    4. initialized?     5. minimum?
+            >> watch out for re-initializing minimum value for each loop!!
+            >> also it doesn't have to be the latest node when choosing another node to link.
+                
