@@ -33,4 +33,5 @@
 11. prim ; 1. which node to start?   2. linked?   3. visited?    4. initialized?     5. minimum?
             >> watch out for re-initializing minimum value for each loop!!
             >> also it doesn't have to be the latest node when choosing another node to link.
-                
+
+12. sollin ; also using union-find and adjusting the array with new nunmber which makes the loop work correctly.(we find minimum, so just make it extra large)

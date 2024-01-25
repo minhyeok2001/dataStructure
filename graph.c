@@ -241,7 +241,7 @@ void prim(int start) {
 
     while (1) {
         //judging process 
-    
+
         flag = 0;    // 1. which node to start?   2. linked?   3. visited?    4. initialized?     5. minimum?
         min = 0xffff;
         for (int k = 0; k < NODENUM; k++) {
@@ -288,7 +288,7 @@ void prim(int start) {
         visited[memory] = 1;
         node = memory;
         printf("%d ", node);
-        weight +=min;
+        weight += min;
     }
     printf("] weight : %d\n", weight);
 
@@ -297,55 +297,75 @@ void prim(int start) {
 // union find again by my own!!
 
 int myFind(int vertex) {
-    if(unionFindArr[vertex]==vertex) return vertex;
+    if (unionFindArr[vertex] == vertex) return vertex;
     else return myFind(unionFindArr[vertex]);
 }
 
 int myUnionFind(int vertex1, int vertex2) {
-    if(myFind(vertex1)==myFind(vertex2)) return TRUE;
+    if (myFind(vertex1) == myFind(vertex2)) return TRUE;
     else return FALSE;
 }
 
-void myMakeUnion(int vertex1,int vertex2) {
-    if(myFind(vertex1)>myFind(vertex2)) unionFindArr[vertex1]=vertex2;
-    else unionFindArr[vertex2]=vertex1;
+void myMakeUnion(int vertex1, int vertex2) {
+    if (myFind(vertex1) > myFind(vertex2)) unionFindArr[vertex1] = vertex2;
+    else unionFindArr[vertex2] = vertex1;
 }
 
-void sollin() { // 1. find least weight edge for each node.     2. check duplication and link them.     
+int sollin() { // 1. find least weight edge for each node.     2. check duplication and link them.     
                 // 3.  link between forests, if the number of edges is vertex-1, done.
-    count=0;
+    count = 0;
     setArray();
-    int edgeCount=0;
     int min;
-    int vertex1,vertex2;
-
+    int vertex1, vertex2;
+    int flag[NODENUM];
+    int edgeCount = 0;
+    int weight=0;
     for (int i = 0; i < NODENUM; i++) unionFindArr[i] = i;  // also use union-find
-
     //1. find least weight edge for each node.  
-    for(int i=0;i<NODENUM;i++) {
-        min=0xffff;
-        for(int k=0;k<WEIGHTNUM;k++) {
-            if(arr[k][0]==i || arr[k][1]==i) {
-                if(min>arr[k][2]) {
-                    if(arr[k][0]>arr[k][1]) {
-                        vertex1 = arr[k][1];
-                        vertex2 = arr[k][0];
+
+    for (;;) {
+
+        for (int i = 0; i < NODENUM; i++)  flag[i] = 0;
+
+        for (int i = 0; i < NODENUM; i++) { //for every node
+            min = 0xff;
+            for (int k = 0; k < WEIGHTNUM; k++) {   // for every array
+                if (arr[k][0] == i || arr[k][1] == i) { // if connected
+                    if (min > arr[k][2]) {  
+                        if (arr[k][0] > arr[k][1]) {
+                            vertex1 = arr[k][1];
+                            vertex2 = arr[k][0];
+                        }
+                        else {
+                            vertex1 = arr[k][0];
+                            vertex2 = arr[k][1];
+                        }   // smaller one ; vertex1.
+                        min = arr[k][2];
+                        flag[edgeCount] = k;    //store data of two vertices index in flag arr
                     }
-                    else {
-                        vertex1 = arr[k][0];
-                        vertex2 = arr[k][1];
-                    }   // smaller one ; vertex1.
-                    min = arr[k][2];
                 }
             }
+
+            if (!myUnionFind(vertex1, vertex2)) {
+                myMakeUnion(vertex1, vertex2);
+                printf("(%d %d) ", vertex1, vertex2);
+                edgeCount++;
+                weight+=min;
+            }
+
+            if (edgeCount == NODENUM - 1) return weight;
         }
 
-        if(!myUnionFind(vertex1,vertex2)) {
-            myMakeUnion(vertex1,vertex2);
-            printf("(%d %d) ",vertex1,vertex2);
+        int hola = 0;
+
+        while (hola<=edgeCount) {   // changing original array, so that we can just ignore things that we just select.
+            arr[flag[hola]][0] = 0xffff;
+            arr[flag[hola]][1] = 0xffff;
+            arr[flag[hola]][2] = 0xffff;
+            hola++;
         }
-        // 1st step done. ( without checking duplication)
     }
+
 }
 
 int main() {
@@ -362,6 +382,8 @@ int main() {
 
     kruskal();
     prim(0);
-    sollin();
+    printf("sollin : ");
+    int result = sollin();
+    printf(" weight : %d\n",result);
     return 0;
 }
