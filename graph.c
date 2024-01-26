@@ -5,6 +5,7 @@
 #define NODENUM 9
 #define TRUE 1
 #define FALSE 0
+#define ADJARRNODENUM 6
 
 /*
 Graph traversal ; depth first search, breath first search with adjacency list
@@ -365,7 +366,52 @@ int sollin() { // 1. find least weight edge for each node.     2. check duplicat
             hola++;
         }
     }
+}
 
+void dijkstra(int startingNode, int arrivalNode) {   
+    // 1. make adjacency array with weight 
+    int adjArr[6][6] ={0,50,10,1000,45,1000,1000,0,15,1000,10,1000,20,1000,0,15,
+    1000,1000,1000,20,1000,0,35,1000,1000,1000,30,1000,0,1000,1000,1000,1000,3,1000,0};
+    //if there is a path, then compare the weight with the original one.
+
+    int found[ADJARRNODENUM]={0,};
+    found[startingNode]=1;
+
+    int min;
+    int indexMemory=0;
+    int tempNode= startingNode;
+    int flag;
+    int prev=startingNode;;
+    int path[ADJARRNODENUM];
+    for(int i=0;i<ADJARRNODENUM;i++) {
+        if(adjArr[startingNode][i] == 1000) path[i]=i;    // for displaying path (ancestor nodes).
+        else path[i]=0;
+    }
+    for(;;) {
+        min=0xffff;
+        flag=0; // judging whether found array is full with 1 or not 
+        for(int i=0;i<ADJARRNODENUM;i++) {
+            if(!found[i]) { //find least path in each row
+                if(min>adjArr[tempNode][i]) {
+                    min=adjArr[tempNode][i];
+                    indexMemory=i; 
+                }
+                flag=1;
+            }
+        }
+        //judge if it is actual shortest path
+        found[indexMemory]=1;
+        if(adjArr[startingNode][indexMemory]>=min + adjArr[startingNode][prev]) {
+            adjArr[startingNode][indexMemory] = min + adjArr[startingNode][prev];
+            path[indexMemory]=prev; 
+        }
+        tempNode = indexMemory;
+        prev = indexMemory;
+        if(!flag) break;   
+    }
+    for(int i=0;i<ADJARRNODENUM;i++) printf("%d ", path[i]);
+    if(adjArr[startingNode][arrivalNode] != 1000)   printf("weight : %d",adjArr[startingNode][arrivalNode]);
+    else printf("NO PATH");
 }
 
 int main() {
@@ -385,5 +431,7 @@ int main() {
     printf("sollin : ");
     int result = sollin();
     printf(" weight : %d\n",result);
+
+    dijkstra(0,4);
     return 0;
 }
