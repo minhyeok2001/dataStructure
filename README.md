@@ -48,7 +48,7 @@ and for dijkstra...
 ![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/288a1ef2-8f87-42c2-bf99-0d99ec799798)
 
 ---
-## 6. Hashing
+## 6. Hashing   (without code, just conceptual instruction)
 ### 1. Static hashing
 1. Hashing algorithms
    > Mid square, division, folding, digit analysis
