@@ -32,6 +32,12 @@ using...
 
 ![캡처](https://github.com/minhyeok2001/Assignment-23-2/assets/107342667/0715287e-559b-4e18-93e3-6b79b4ede2d4)
 
+
+and for dijkstra...
+
+![스크린샷 2024-01-26 101506](https://github.com/minhyeok2001/dataStructure/assets/107342667/03be2a79-524a-4afe-800b-7e2da4bb13ab)
+
+
 ---
 ## 5. Sorting
    6 types of sorting
