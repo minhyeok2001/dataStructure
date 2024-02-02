@@ -1,0 +1,37 @@
+1. temp->data = strdup(msg) 
+    If we just only use 'msg' without strdup, then it does not copy the string, but it copies string's address, which means that it would be the problem soon.
+    (ex. if you change msg, then all temp->data follows the latest one)
+
+2. char* msg; with scanf later  VS char* msg = "hola";
+    Former one, we should control memory allocation, but the latter one, character string is automatically stored in 'const data area', which is read-only(cannot modify).
+    So, in the case of latter one, we don't have to care about memory allocation.
+
+3. if(!a) vs if(a) must not confuse...
+
+4. temp = node vs node = temp >> lets just think as "left becomes right".
+    >> if wanna you want to link temp node with avail trail??    temp = avail (X) // avail = temp (O)
+
+5. making a new node with link, we must initialize both data and link(with NULL) of its node. 
+
+6. each of structure pointer array needed memory allocation with size of struct.
+
+7. UNION-FIND; make them union & find with their parent.
+    >> when adding two variable in union-find arr, it is important to find whose ancestor is smaller.
+       it should be like  ; arr[bigger ancestor variable] = smaller ancestor variable; 
+
+8. bubble sort ; if(arr[i] > arr[i+1]) >> watch out for i+1 range.! 
+
+9. heap sort ; if we want to delete, it is not a good idea to put some numbers like 0 or 0xffff in the blank, because we compare them to
+                judge whether it is proper space to put while initializing(making heap tree). Rather, just adjusting the scope of re-initializing can make problem solved.
+
+                also we should watch out for the range of array when doubling the parent index to swap.
+
+10. merge sort ; 1. without global variables.
+                 2. use new index to store newly made array, not left 
+                >> 이해가 하도 안가서 일단 스킵했음.. 나중에 반드시 다시보기
+
+11. prim ; 1. which node to start?   2. linked?   3. visited?    4. initialized?     5. minimum?
+            >> watch out for re-initializing minimum value for each loop!!
+            >> also it doesn't have to be the latest node when choosing another node to link.
+
+12. sollin ; also using union-find and adjusting the array with new nunmber which makes the loop work correctly.(we find minimum, so just make it extra large)

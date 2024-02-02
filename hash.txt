@@ -1,0 +1,32 @@
+1. Static hashing
+
+    Hashing algorithms
+    
+    1. mid square ; square them and use bits from middle of the square.
+
+    2. division ; using modulo operator
+
+    3. folding ; sporadically reverse the group of numbers
+
+
+    how to solve Overflow handling (bucket overflow)?
+
+    >> Open addressing ; linear, random, quadratic probing
+
+    1. linear probing ; use closest unfilled bucket
+
+    2. random probing ; use (h(X) + ri) % b. (simply, just use random index to put, using some sort of function)
+
+    3. quadratic ; use (h(x) + i^2) % b.
+
+    >> Chaining ; use linked list
+
+
+2. Dynamic hashing
+
+    Extendable hashing ; use directory. If overflow occurs, then double directory and corresponding bucket to handle.
+
+    Linear hashing  ; use h1(x) = x mod N, if overflow occurs, then use h2(x) = x mod 2N function, and also use overflow bucket.
+                      when finding data, use split pointer to choose which function to use.
+
+
