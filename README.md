@@ -1,4 +1,4 @@
-# DATA STRUCTURE in C (24/1/5 ~ 
+# DATA STRUCTURE in C (24/1/5 ~ 24/3)
 
 ---
 
@@ -50,9 +50,6 @@ and for dijkstra...
    
    >Insertion sort, Bubble sort, Selection sort, Quick sort, Merge sort, Heap sort
 
-   Time complexity
-![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/288a1ef2-8f87-42c2-bf99-0d99ec799798)
-
 ---
 ## 6. Hashing   (without code, just conceptual instruction)
 ### 1. Static hashing
@@ -71,13 +68,5 @@ and for dijkstra...
 ---
 ## 7. Balanced binary search trees (advanced ver)
 1. AVL tree
-   
-![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/9eaaee41-7004-42eb-9544-b461b8cb21fa)
-
-![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/6bd935e3-d5e4-44c3-a2ad-bce90373bfeb)
-
-![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/ad8faa70-ea04-44f4-af52-937c191ba418)
-
-![image](https://github.com/minhyeok2001/dataStructure/assets/107342667/5a87d958-025d-4b6a-826d-b4d52e6b3a26)
 
 2. Red-Black tree
